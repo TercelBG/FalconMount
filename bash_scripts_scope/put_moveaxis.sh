@@ -11,9 +11,9 @@ echo "Parameter 1 value is: $5"
 echo "Parameter 2 value is: $6"
 
 
-query="UPDATE properties SET value = 'True' WHERE (name = 'slewing');"
+# query="UPDATE properties SET value = 'True' WHERE (name = 'slewing');"
 # query="UPDATE properties SET value = 'False' WHERE (name = 'tracking');"
-mariadb -u alpaca -pdobri4 -D alpaca_scope -e "$query"
+# mariadb -u alpaca -pdobri4 -D alpaca_scope -e "$query"
 
 if [ "$5" == "0" ]; then
     sudo python3 hardwarecontrol/movera.py $6

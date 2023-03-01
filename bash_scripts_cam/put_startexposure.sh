@@ -27,8 +27,8 @@ cpfilename="light_$time"
 # mariadb -u alpaca -pdobri4 -D alpaca_camera -e "$query" 
 
 /usr/bin/gphoto2 -B $5 --capture-image-and-download --filename "$filename.%C" 
- rm /opt/alpaca/bash_scripts_cam/*.NEF
- cp $filename.NEF /opt/alpaca/bash_scripts_cam/$cpfilename.NEF
+rm /opt/alpaca/bash_scripts_cam/*.NEF
+cp $filename.NEF /opt/alpaca/bash_scripts_cam/$cpfilename.NEF
 echo  "filenameparam is '$filename'"
 query="UPDATE properties SET value = 'bash_scripts_cam/$cpfilename.NEF' WHERE (name = 'imagearray');"
 mariadb -u alpaca -pdobri4 -D alpaca_camera -e "$query"
