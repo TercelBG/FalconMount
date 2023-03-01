@@ -30,7 +30,7 @@ pi.set_mode(EN2, pigpio.OUTPUT)
 pi.set_mode(LED, pigpio.OUTPUT)
 pi.set_mode(MS1, pigpio.OUTPUT)
 
-
+pi.write(DIR1,0)
 pi.hardware_PWM(18, 0 , 0)
 
 pi.set_mode(STEP1, pigpio.OUTPUT)

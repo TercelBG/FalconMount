@@ -57,12 +57,12 @@ def monitor():
 
         if v_slewing == 'True' :
             # print ('Calculated RA is ')
-            out_rightascension=str(v_rightascension+(v_rightascensionrate/60/60))
+            out_rightascension=str(v_rightascension+(v_rightascensionrate/15))
             # print(out_rightascension)
             # print ('Ra rate is:')
             # print (v_rightascensionrate)
             # print ('Calculated DEC is ')
-            out_declination=str(v_declination+(v_declinationrate/60/60))
+            out_declination=str(v_declination+(v_declinationrate))
             # print(out_declination)
         else:
             # print ("tracking is : "+v_tracking)

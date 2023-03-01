@@ -312,4 +312,4 @@ def proccess_api_call(in_device, in_action):
 
 
 if __name__ == '__main__':
-    app.run(host='192.168.1.21', port=5001, debug=True)
+    app.run(host='192.168.1.21', port=5001, debug=False)

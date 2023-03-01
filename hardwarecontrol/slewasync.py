@@ -18,19 +18,16 @@ def move_ra(speed_ra,speed_dec, time_ra, time_dec, dir_ra, dir_dec, tracking, ne
     DM2 = 0
     pi = pigpio.pi()
     pi.set_mode(DIR1, pigpio.OUTPUT)
-    pi.set_mode(STEP1, pigpio.OUTPUT)
     pi.set_mode(EN1, pigpio.OUTPUT)
     pi.set_mode(LED, pigpio.OUTPUT)
-    pi.write(EN1,0)
     pi.write(DIR1,dir_ra)
-
     pi.write(EN1,0)
     pi.write(MS1,1)
-    pi.hardware_PWM(18, speed_ra , 500000)
-    
+    pi.hardware_PWM(STEP1, speed_ra , 500000)
     sleep(time_ra)
+
     if tracking == 'True':
-        pi.hardware_PWM(18, 891 , 500000)
+        pi.hardware_PWM(STEP1, 891 , 500000)
     else:
         pi.set_mode(STEP1, pigpio.OUTPUT)
         pi.write(EN1,1)
@@ -93,7 +90,7 @@ print(olddec)
 print(newra)
 print(newdec)
 
-rarate=2
+rarate=0.5
 decrate=1
 
 print('hours to move')
@@ -109,9 +106,10 @@ if to_move_ra > 0 :
 else: 
     dir_ra=0
 print('speed')
-speed_ra = abs(round(0.5*213333))
+to_move_ra_deg=to_move_ra*15
+speed_ra = abs(round(rarate*213333.333))
 print('speed_ra')
-time_ra = abs(((to_move_ra*360)/24)/rarate)
+time_ra = abs(to_move_ra_deg/rarate)
 print('time')
 print(time_ra)
 
@@ -122,7 +120,7 @@ if to_move_dec > 0 :
 else: 
     dir_dec=1
 
-speed_dec = abs(round(2*444))
+speed_dec = abs(round(decrate*444.4444))
 time_dec = abs((to_move_dec)/decrate)
 
 

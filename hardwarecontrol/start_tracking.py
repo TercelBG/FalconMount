@@ -45,6 +45,7 @@ else:
 pi.write(EN1,0)
 pi.write(EN2,0)
 pi.write(MS1,1)
+pi.write(DIR1,0)
 pi.hardware_PWM(18, speed , 500000)
 
 # pi.write(DIR1,0)

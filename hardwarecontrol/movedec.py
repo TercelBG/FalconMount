@@ -67,7 +67,7 @@ if arg1 == 0:
     cnx_scope.close()
 
 else:
-    speed=round(abs(arg1)*444/60/60)
+    speed=round((abs(arg1)*444.4444))
     if arg1 > 0 :
         pi.write(DIR2,0)
         pi.set_PWM_dutycycle(STEP2, 128)
